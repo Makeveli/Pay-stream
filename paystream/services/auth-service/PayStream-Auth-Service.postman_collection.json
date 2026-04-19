@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "4d1a0d3b-9a4f-4a34-a212-e25f8b9d6a3f",
+		"name": "PayStream Auth Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testuser@example.com\",\n    \"password\": \"securepassword123\",\n    \"name\": \"Test User\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testuser@example.com\",\n    \"password\": \"securepassword123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refreshToken\": \"paste-your-refresh-token-here\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

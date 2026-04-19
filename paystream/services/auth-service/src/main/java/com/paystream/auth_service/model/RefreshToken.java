@@ -2,6 +2,7 @@ package com.paystream.auth_service.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -36,11 +37,9 @@ public class RefreshToken {
     @Column(nullable = false)
     private boolean revoked = false;
 
-
+    @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt = Instant.now();
+    private Instant createdAt;
 
 
 }
-
-

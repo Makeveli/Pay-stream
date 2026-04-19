@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// Java package where generated classes will be placed
+option java_package = "com.paystream.grpc";
+option java_outer_classname = "TransactionServiceProto";
+option java_multiple_files = true;
+
+package paystream;
+
+// The gRPC service definition
+service TxnService {
+  // Check if a payment with this idempotency key already exists
+  rpc CheckIdempotency (IdempotencyRequest) returns (IdempotencyResponse);
+}
+
+// Input message
+message IdempotencyRequest {
+  string idempotency_key = 1;   // unique key sent by the client
+  string payment_id      = 2;   // the new payment's ID
+}
+
+// Output message
+message IdempotencyResponse {
+  bool   is_duplicate     = 1;  // true = this key was seen before
+  string existing_txn_id  = 2;  // populated if is_duplicate is true
+}
